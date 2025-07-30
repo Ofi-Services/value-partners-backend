@@ -14,7 +14,7 @@ class Activity(models.Model):
         tpt (float): The time per task of the activity, with a default value of 0.
     """
     id = models.AutoField(primary_key=True)
-    case = models.ForeignKey(Case, related_name='activities', on_delete=models.CASCADE)
+    case = models.CharField(max_length=10)
     timestamp = models.DateTimeField()
     name = models.CharField(max_length=60)
     tpt = models.FloatField(default=0)
