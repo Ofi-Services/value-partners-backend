@@ -1,0 +1,27 @@
+name: Deploy Backend to EC2 (Development Environment)
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH key
+        run: |
+          set -e
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_DEV }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_HOST_DEV }} >> ~/.ssh/known_hosts
+
+      - name: SSH into EC2 and run script
+        run: |
+          set -e
+          ssh ${{ secrets.EC2_USER_DEV }}@${{ secrets.EC2_HOST_DEV }} 'bash ~/deploy_backend.sh'

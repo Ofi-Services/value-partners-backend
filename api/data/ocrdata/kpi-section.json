@@ -1,0 +1,14 @@
+{
+  "kpiSection": {
+    "totalInvoices": 1200,
+    "totalInvoicesWithAlerts": 315,
+    "totalMaterialsWithQuantityMismatches": 128,
+    "totalMaterialsWithPriceMismatches": 204,
+    "totalInvoicesWithQuantityMismatches": 95,
+    "totalInvoicesWithAlertTerms": 180,
+    "totalInvoicesWithContractExceeded": 47,
+    "totalInvoicesWithEarlyPayments": 60,
+    "totalDifferenceInPrices": 15432.75,
+    "invoiceExceptionRate": 26.25
+  }
+}

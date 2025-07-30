@@ -1,0 +1,15 @@
+{
+  "materialAlertPerMaterial": [
+    { "material": "Material A", "totalQty": 5000, "alertedQty": 2000 },
+    { "material": "Material B", "totalQty": 3000, "alertedQty": 1200 },
+    { "material": "Material C", "totalQty": 8000, "alertedQty": 1500 },
+    { "material": "Material D", "totalQty": 4200, "alertedQty": 900 },
+    { "material": "Material E", "totalQty": 6100, "alertedQty": 1100 },
+    { "material": "Material F", "totalQty": 2750, "alertedQty": 700 },
+    { "material": "Material G", "totalQty": 5300, "alertedQty": 1300 },
+    { "material": "Material H", "totalQty": 4800, "alertedQty": 950 },
+    { "material": "Material I", "totalQty": 3900, "alertedQty": 800 },
+    { "material": "Material J", "totalQty": 7200, "alertedQty": 1600 },
+    { "material": "Material K", "totalQty": 3400, "alertedQty": 600 }
+  ]
+}

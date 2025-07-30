@@ -1,0 +1,38 @@
+services:
+  # Django app container
+  app:
+    build: .
+    container_name: django_app
+    volumes:
+      - .:/app
+    expose:
+      - "8000"
+    env_file:
+      - .env
+    restart: always
+
+  # Nginx container (reverse proxy with SSL support)
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/templates/nginx.conf.template
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/lib/letsencrypt:/var/lib/letsencrypt:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - NGINX_SERVER_NAME=${NGINX_SERVER_NAME:-localhost}
+      - NGINX_SSL_CERTIFICATE=${NGINX_SSL_CERTIFICATE:-/etc/nginx/ssl/localhost.crt}
+      - NGINX_SSL_CERTIFICATE_KEY=${NGINX_SSL_CERTIFICATE_KEY:-/etc/nginx/ssl/localhost.key}
+    command: >
+      /bin/sh -c "apk add --no-cache gettext &&
+      envsubst '$$NGINX_SERVER_NAME $$NGINX_SSL_CERTIFICATE $$NGINX_SSL_CERTIFICATE_KEY' 
+      < /etc/nginx/templates/nginx.conf.template 
+      > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    depends_on:
+      - app
+    restart: always
+

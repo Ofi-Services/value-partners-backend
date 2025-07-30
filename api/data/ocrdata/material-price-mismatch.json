@@ -1,0 +1,36 @@
+{
+    "materialPriceMismatch": [
+   { "date": "2025-05-01", "totalInvoices": 320, "materialMismatches": 50, "priceMismatches": 30 },
+   { "date": "2025-05-02", "totalInvoices": 289, "materialMismatches": 45, "priceMismatches": 25 },
+   { "date": "2025-05-03", "totalInvoices": 310, "materialMismatches": 55, "priceMismatches": 35 },
+   { "date": "2025-05-04", "totalInvoices": 305, "materialMismatches": 48, "priceMismatches": 28 },
+   { "date": "2025-05-05", "totalInvoices": 298, "materialMismatches": 42, "priceMismatches": 22 },
+   { "date": "2025-05-06", "totalInvoices": 315, "materialMismatches": 58, "priceMismatches": 38 },
+   { "date": "2025-05-07", "totalInvoices": 322, "materialMismatches": 60, "priceMismatches": 40 },
+   { "date": "2025-05-08", "totalInvoices": 318, "materialMismatches": 53, "priceMismatches": 33 },
+   { "date": "2025-05-09", "totalInvoices": 325, "materialMismatches": 57, "priceMismatches": 36 },
+   { "date": "2025-05-10", "totalInvoices": 330, "materialMismatches": 59, "priceMismatches": 39 },
+   { "date": "2025-05-11", "totalInvoices": 328, "materialMismatches": 56, "priceMismatches": 37 },
+   { "date": "2025-05-12", "totalInvoices": 335, "materialMismatches": 60, "priceMismatches": 41 },
+   { "date": "2025-05-13", "totalInvoices": 340, "materialMismatches": 62, "priceMismatches": 42 },
+   { "date": "2025-05-14", "totalInvoices": 338, "materialMismatches": 58, "priceMismatches": 38 },
+   { "date": "2025-05-15", "totalInvoices": 342, "materialMismatches": 61, "priceMismatches": 40 },
+   { "date": "2025-05-16", "totalInvoices": 345, "materialMismatches": 63, "priceMismatches": 43 },
+   { "date": "2025-05-17", "totalInvoices": 347, "materialMismatches": 65, "priceMismatches": 44 },
+   { "date": "2025-05-18", "totalInvoices": 350, "materialMismatches": 66, "priceMismatches": 45 },
+   { "date": "2025-05-19", "totalInvoices": 348, "materialMismatches": 64, "priceMismatches": 43 },
+   { "date": "2025-05-20", "totalInvoices": 352, "materialMismatches": 67, "priceMismatches": 46 },
+   { "date": "2025-05-21", "totalInvoices": 355, "materialMismatches": 68, "priceMismatches": 47 },
+   { "date": "2025-05-22", "totalInvoices": 358, "materialMismatches": 70, "priceMismatches": 48 },
+   { "date": "2025-05-23", "totalInvoices": 360, "materialMismatches": 72, "priceMismatches": 49 },
+   { "date": "2025-05-24", "totalInvoices": 362, "materialMismatches": 73, "priceMismatches": 50 },
+   { "date": "2025-05-25", "totalInvoices": 365, "materialMismatches": 75, "priceMismatches": 52 },
+   { "date": "2025-05-26", "totalInvoices": 368, "materialMismatches": 77, "priceMismatches": 53 },
+   { "date": "2025-05-27", "totalInvoices": 370, "materialMismatches": 78, "priceMismatches": 54 },
+   { "date": "2025-05-28", "totalInvoices": 372, "materialMismatches": 80, "priceMismatches": 55 },
+   { "date": "2025-05-29", "totalInvoices": 375, "materialMismatches": 82, "priceMismatches": 57 },
+   { "date": "2025-05-30", "totalInvoices": 378, "materialMismatches": 84, "priceMismatches": 58 },
+   { "date": "2025-05-31", "totalInvoices": 380, "materialMismatches": 85, "priceMismatches": 60 }
+  ]
+}
+
