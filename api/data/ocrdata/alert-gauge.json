@@ -1,7 +1,0 @@
-{
-  "alertGauge": {
-    "invoiceAlertLeadAvg": 120.18,
-    "invoiceTolerantLimit": 200,
-    "threshold": 140
-  }
-}
