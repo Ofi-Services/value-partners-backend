@@ -1,16 +1,19 @@
 import pandas as pd
 import os
-
+import re
 def process_first_column(text):
     """
     Example function to process the first column.
     This function calculates the length of the text.
     You can modify this function to implement any logic you need.
     """
-    if pd.isna(text):
-        return 0
-    return len(str(text))
-
+    #Look for all texts with the structure GBS#####
+    pattern = r'GBS\d{5}'
+    matches = re.findall(pattern, str(text))
+    if not matches:
+        return "['GBS']"
+    return matches
+    
 def process_csv_file(input_file, output_file=None):
     """
     Reads a CSV file, processes the first column, and creates a new column with the result.
@@ -76,7 +79,7 @@ def main():
         
         # Show some sample results
         print("\nSample results:")
-        print(processed_df[['SM_DS_REQUEST', 'SM_DS_REQUEST_processed']].head(10))
+        print(processed_df[['SM_DS_REQUEST', 'CASE_IDs']].head(10))
 
 if __name__ == "__main__":
     main()

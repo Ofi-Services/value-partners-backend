@@ -18,10 +18,6 @@ class Activity(models.Model):
     timestamp = models.DateTimeField()
     name = models.CharField(max_length=60)
     tpt = models.FloatField(default=0)
-    user = models.CharField(max_length=50, default='None')
-    user_type = models.CharField(max_length=50, default='None')
-    automatic = models.BooleanField(default=False)
-    rework = models.BooleanField(default=False)
     case_index = models.CharField(max_length=50)
 
     def __str__(self):
