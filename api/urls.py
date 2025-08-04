@@ -7,6 +7,7 @@ from rest_framework import permissions
 from .views.views import (
    ActivityList,
    VariantList,
+   DistinctActivityData,
 )
 
 """
@@ -45,5 +46,9 @@ urlpatterns = [
    path('variant/', VariantList.as_view(), name='variant-list'),
   
    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-  
+
+
+   path('metadata/', DistinctActivityData.as_view(), name='metadata-list'),
+
+
 ]
