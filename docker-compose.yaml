@@ -7,7 +7,7 @@ services:
       - static_volume:/app/static
       - media_volume:/app/media
     ports:
-      - "8000:8000"
+      - "5001:8000"
     restart: always
 
 volumes:
