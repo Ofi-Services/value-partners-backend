@@ -239,7 +239,7 @@ class Command(BaseCommand):
         Handle the command to add data to the database from the CSV file.
         """
        
-        self.create_activities(os.path.join(settings.BASE_DIR, 'api', 'data', 'activities.csv'))
+        self.create_activities(os.path.join(settings.BASE_DIR, 'api', 'data', 'merged_activities_data_sample_10pct.csv'))
         self.stdout.write(self.style.SUCCESS('Activities added'))
         self.stdout.write(self.style.SUCCESS('Adding TPT'))
         self.add_TPT()
