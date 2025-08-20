@@ -5,7 +5,7 @@
 __pycache__/
 local_settings.py
 #db.sqlite3
-db.sqlite3-journal
+#db.sqlite3-journal
 media
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
@@ -260,6 +260,6 @@ localhost.crt
 localhost.key
 api/data/migration_log.txt
 
-db.sqlite3
+#db.sqlite3
 .env.prod
 .env.dev
