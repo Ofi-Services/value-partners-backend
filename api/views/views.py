@@ -92,23 +92,25 @@ class ActivityList(APIView):
             if case_index:
                 activities = activities.filter(case_index=case_index)
             if case_ids:
-                activities = activities.filter(case__id__in=case_ids)
+                activities = activities.filter(case__in=case_ids)
             if names:
                 activities = activities.filter(name__in=names)
-            if type:
-                activities = activities.filter(case__type=type)
-            if branch:
-                activities = activities.filter(case__branch=branch)
-            if ramo:
-                activities = activities.filter(case__ramo=ramo)
-            if brocker:
-                activities = activities.filter(case__brocker=brocker)
-            if state:
-                activities = activities.filter(case__state=state)
-            if client:
-                activities = activities.filter(case__client=client)
-            if creator:
-                activities = activities.filter(case__creator=creator)
+            # Note: The following filters are commented out because 'case' is a CharField, not a foreign key
+            # If you need these filters, you'll need to add these fields to the Activity model
+            # if type:
+            #     activities = activities.filter(case__type=type)
+            # if branch:
+            #     activities = activities.filter(case__branch=branch)
+            # if ramo:
+            #     activities = activities.filter(case__ramo=ramo)
+            # if brocker:
+            #     activities = activities.filter(case__brocker=brocker)
+            # if state:
+            #     activities = activities.filter(case__state=state)
+            # if client:
+            #     activities = activities.filter(case__client=client)
+            # if creator:
+            #     activities = activities.filter(case__creator=creator)
             if variant_ids:
                 variants = Variant.objects.filter(id__in=variant_ids)
 
@@ -122,7 +124,7 @@ class ActivityList(APIView):
                             }
                         )
 
-                    activities = activities.filter(case__id__in=case_ids)
+                    activities = activities.filter(case__in=case_ids)
             if start_date:
                 activities = activities.filter(timestamp__gte=start_date)
             if end_date:
