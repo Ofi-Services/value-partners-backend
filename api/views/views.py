@@ -229,3 +229,44 @@ class VariantList(APIView):
         serializer = VariantSerializer(paginated_variants, many=True)
         return paginator.get_paginated_response(serializer.data)
 
+
+
+def execute_orm_query(query_string, context=None):
+    """
+    Executes a Django ORM query from a string.
+    Args:
+        query_string (str): The ORM query as a string, e.g. "Activity.objects.filter(name='Test')"
+        context (dict): Optional context with models, etc.
+    Returns:
+        Queryset or error message.
+    """
+    if context is None:
+        # Add models and other objects you want available for queries
+        context = {
+            "Activity": Activity,
+            "Variant": Variant,
+        }
+    try:
+        result = eval(query_string, {}, context)
+        return result
+    except Exception as e:
+        return str(e)
+
+
+# APIView to execute ORM queries via POST request
+class ORMQueryExecutor(APIView):
+    """
+    Receives a Django ORM query as a string via POST and executes it.
+    Request body: { "query": "Activity.objects.filter(name='Test')" }
+    Returns: Queryset results or error message.
+    """
+    def post(self, request):
+        query_string = request.data.get("query")
+        if not query_string:
+            return Response({"error": "Missing 'query' in request body."}, status=400)
+        result = execute_orm_query(query_string)
+        # If result is a queryset, serialize it
+        if hasattr(result, "__iter__") and not isinstance(result, str):
+            serializer = ActivitySerializer(result, many=True)
+            return Response(serializer.data)
+        return Response({"result": result})
