@@ -8,7 +8,7 @@ from .views.views import (
    ActivityList,
    VariantList,
    DistinctActivityData,
-   ORMQueryExecutor,
+   ORMQueryExecutor
 )
 
 """
@@ -51,7 +51,6 @@ urlpatterns = [
 
    path('metadata/', DistinctActivityData.as_view(), name='metadata-list'),
 
-   path('query/', ORMQueryExecutor.as_view(), name='query')
-
+   path('query/', ORMQueryExecutor.as_view(), name='query'),
 
 ]

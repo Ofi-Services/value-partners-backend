@@ -230,29 +230,6 @@ class VariantList(APIView):
         return paginator.get_paginated_response(serializer.data)
 
 
-
-def execute_orm_query(query_string, context=None):
-    """
-    Executes a Django ORM query from a string.
-    Args:
-        query_string (str): The ORM query as a string, e.g. "Activity.objects.filter(name='Test')"
-        context (dict): Optional context with models, etc.
-    Returns:
-        Queryset or error message.
-    """
-    if context is None:
-        # Add models and other objects you want available for queries
-        context = {
-            "Activity": Activity,
-            "Variant": Variant,
-        }
-    try:
-        result = eval(query_string, {}, context)
-        return result
-    except Exception as e:
-        return str(e)
-
-
 # APIView to execute ORM queries via POST request
 class ORMQueryExecutor(APIView):
     """
@@ -261,12 +238,44 @@ class ORMQueryExecutor(APIView):
     Returns: Queryset results or error message.
     """
     def post(self, request):
-        query_string = request.data.get("query")
-        if not query_string:
-            return Response({"error": "Missing 'query' in request body."}, status=400)
-        result = execute_orm_query(query_string)
-        # If result is a queryset, serialize it
-        if hasattr(result, "__iter__") and not isinstance(result, str):
-            serializer = ActivitySerializer(result, many=True)
-            return Response(serializer.data)
-        return Response({"result": result})
+        script = request.data.get("script")
+        if not script:
+            return Response({"error": "Missing 'script' in request body."}, status=400)
+        # Replace '\n' with actual line breaks
+        script = script.replace("\\n", "\n")
+        from django.db.models import Count, Sum, Avg, Min, Max, F, Q
+        context = {
+            "Activity": Activity,
+            "Variant": Variant,
+            "Count": Count,
+            "Sum": Sum,
+            "Avg": Avg,
+            "Min": Min,
+            "Max": Max,
+            "F": F,
+            "Q": Q,
+        }
+        # Remove import statements for objects already in context
+        import re
+        context_keys = set(context.keys())
+        filtered_lines = []
+        for line in script.splitlines():
+            match = re.match(r"from\s+([\w\.]+)\s+import\s+([\w, ]+)", line.strip())
+            if match:
+                imported = [x.strip() for x in match.group(2).split(",")]
+                # Skip import if all imported objects are already in context
+                if all(obj in context_keys for obj in imported):
+                    continue
+            filtered_lines.append(line)
+        script = "\n".join(filtered_lines)
+        # End Remove import statements for objects already in context
+
+
+        script = script.replace(".models", "")
+        local_vars = {}
+        try:
+            exec(script, context, local_vars)
+            result = local_vars.get("result")
+            return Response({"result": result})
+        except Exception as e:
+            return Response({"error": str(e)}, status=500)
