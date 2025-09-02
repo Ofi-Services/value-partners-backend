@@ -41,6 +41,5 @@ COPY ofi_dashboard_backend /app/ofi_dashboard_backend
 RUN chmod +x /app/manage.py
 
 # Run migrations and start the Django app
-CMD ["sh", "-c", "python manage.py migrate && \
-                  python manage.py collectstatic --no-input && \
+CMD ["sh", "-c", "python manage.py collectstatic --no-input && \
                   python manage.py runserver 0.0.0.0:5001"]
