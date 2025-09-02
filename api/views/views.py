@@ -279,3 +279,42 @@ class ORMQueryExecutor(APIView):
             return Response({"result": result})
         except Exception as e:
             return Response({"error": str(e)}, status=500)
+
+
+class CaseExplorer(APIView):
+    """
+    Returns a JSON list for each case with:
+    - case id
+    - number of activities
+    - throughput time (difference between first and last activity timestamps)
+    - name and timestamp of first activity
+    - name and timestamp of last activity
+    """
+    def get(self, request):
+        try:
+            cases = Activity.objects.values_list('case', flat=True).distinct()
+            result = []
+            for case_id in cases:
+                activities = Activity.objects.filter(case=case_id).order_by('timestamp')
+                if not activities.exists():
+                    continue
+                first = activities.first()
+                last = activities.last()
+                throughput = (last.timestamp - first.timestamp).total_seconds() if first and last else None
+                result.append({
+                    'case': case_id,
+                    'activity_count': activities.count(),
+                    'throughput_time_seconds': throughput,
+                    'first_activity': {
+                        'name': first.name,
+                        'timestamp': first.timestamp,
+                    },
+                    'last_activity': {
+                        'name': last.name,
+                        'timestamp': last.timestamp,
+                    }
+                })
+            return Response(result)
+        except Exception as e:
+            return Response({'error': str(e)}, status=500)
+

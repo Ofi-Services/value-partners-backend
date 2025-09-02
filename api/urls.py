@@ -8,7 +8,8 @@ from .views.views import (
    ActivityList,
    VariantList,
    DistinctActivityData,
-   ORMQueryExecutor
+   ORMQueryExecutor,
+   CaseExplorer
 )
 
 """
@@ -52,5 +53,7 @@ urlpatterns = [
    path('metadata/', DistinctActivityData.as_view(), name='metadata-list'),
 
    path('query/', ORMQueryExecutor.as_view(), name='query'),
+
+   path('case-explorer/', CaseExplorer.as_view(), name='case-explorer')
 
 ]
