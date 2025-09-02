@@ -318,3 +318,26 @@ class CaseExplorer(APIView):
         except Exception as e:
             return Response({'error': str(e)}, status=500)
 
+class CaseActivityTimeline(APIView):
+    """
+    Returns a list of activities for a given case id, with timestamp and time since first activity.
+    GET parameter: id
+    """
+    def get(self, request):
+        case_id = request.query_params.get('id')
+        if not case_id:
+            return Response({'error': 'Missing id parameter.'}, status=400)
+        activities = Activity.objects.filter(case=case_id).order_by('timestamp')
+        if not activities.exists():
+            return Response({'error': 'No activities found for this case.'}, status=404)
+        first_time = activities.first().timestamp
+        result = []
+        for activity in activities:
+            time_since_first = (activity.timestamp - first_time).total_seconds()
+            result.append({
+                'name': activity.name,
+                'timestamp': activity.timestamp,
+                'time_since_first_seconds': time_since_first
+            })
+        return Response(result)
+

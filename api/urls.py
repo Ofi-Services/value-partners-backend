@@ -9,7 +9,8 @@ from .views.views import (
    VariantList,
    DistinctActivityData,
    ORMQueryExecutor,
-   CaseExplorer
+   CaseExplorer,
+   CaseActivityTimeline,
 )
 
 """
@@ -54,6 +55,8 @@ urlpatterns = [
 
    path('query/', ORMQueryExecutor.as_view(), name='query'),
 
-   path('case-explorer/', CaseExplorer.as_view(), name='case-explorer')
+   path('case-explorer/', CaseExplorer.as_view(), name='case-explorer'),
+
+   path('case/', CaseActivityTimeline.as_view(), name='case-list'),
 
 ]
