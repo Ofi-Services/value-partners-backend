@@ -7,12 +7,10 @@ from ..serializers import (
 from rest_framework.pagination import PageNumberPagination
 from datetime import datetime
 
-from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework import status
 from rest_framework.views import APIView
-
-
+import json
+from pathlib import Path
 
 
 PAGINATION_SIZE = PageNumberPagination.page_size
@@ -238,48 +236,14 @@ class ORMQueryExecutor(APIView):
     Request body: { "query": "Activity.objects.filter(name='Test')" }
     Returns: Queryset results or error message.
     """
-    def post(self, request):
-        script = request.data.get("script")
-        if not script:
-            return Response({"error": "Missing 'script' in request body."}, status=400)
-        # Replace '\n' with actual line breaks
-        script = script.replace("\\n", "\n")
-        from django.db.models import Count, Sum, Avg, Min, Max, F, Q
-        context = {
-            "Activity": Activity,
-            "Variant": Variant,
-            "Count": Count,
-            "Sum": Sum,
-            "Avg": Avg,
-            "Min": Min,
-            "Max": Max,
-            "F": F,
-            "Q": Q,
-        }
-        # Remove import statements for objects already in context
-        import re
-        context_keys = set(context.keys())
-        filtered_lines = []
-        for line in script.splitlines():
-            match = re.match(r"from\s+([\w\.]+)\s+import\s+([\w, ]+)", line.strip())
-            if match:
-                imported = [x.strip() for x in match.group(2).split(",")]
-                # Skip import if all imported objects are already in context
-                if all(obj in context_keys for obj in imported):
-                    continue
-            filtered_lines.append(line)
-        script = "\n".join(filtered_lines)
-        # End Remove import statements for objects already in context
-
-
-        script = script.replace(".models", "")
-        local_vars = {}
-        try:
-            exec(script, context, local_vars)
-            result = local_vars.get("result")
-            return Response({"result": result})
-        except Exception as e:
-            return Response({"error": str(e)}, status=500)
+    def get(self, request):
+        import json
+        from pathlib import Path
+        # Use the correct path relative to the project root
+        data_path = Path(__file__).resolve().parent.parent / 'data' / 'mock' / 'data1.json'
+        with open(data_path, encoding='utf-8') as f:
+            data = json.load(f)
+        return Response(data)
 
 
 class CaseExplorer(APIView):
@@ -349,25 +313,21 @@ class AvgAutomationRate(APIView):
 
 class ActivityAutomationMetrics(APIView):
     def get(self, request):
-        return Response({
-            "activities": [
-                {"activity": "01) Stampanti - Contratti", "automation_rate": 100, "avg_number_of_events": 21, "avg_tat": "0 days"},
-                {"activity": "02) Stampanti - Cartellini", "automation_rate": 13, "avg_number_of_events": 1, "avg_tat": "1 day"},
-                {"activity": "03) Stampanti - Dichiarazioni", "automation_rate": 11, "avg_number_of_events": 1, "avg_tat": "8 days"}
-                # ... continue for all rows
-            ]
-        })
+        import json
+        from pathlib import Path
+        data_path = Path(__file__).resolve().parent.parent / 'data' / 'mock' / 'data1.json'
+        with open(data_path, encoding='utf-8') as f:
+            data = json.load(f)
+        return Response(data)
 
 class UserTATMetrics(APIView):
     def get(self, request):
-        return Response({
-            "users": [
-                {"activity": "01) Stampanti - Contratti", "user_id": "GBS01526", "avg_tat_seconds": 46311079},
-                {"activity": "01) Stampanti - Contratti", "user_id": "-", "avg_tat_seconds": 94852386},
-                {"activity": "02) Stampanti - Cartellini", "user_id": "GBS09123", "avg_tat_seconds": 0}
-                # ... continue for all rows
-            ]
-        })
+        import json
+        from pathlib import Path
+        data_path = Path(__file__).resolve().parent.parent / 'data' / 'mock' / 'data2.json'
+        with open(data_path, encoding='utf-8') as f:
+            data = json.load(f)
+        return Response(data)
 
 # --- Workload and Bottleneck Endpoints ---
 class SystemTriggeredVsManual(APIView):
@@ -464,13 +424,7 @@ class ActivitiesPerformedOverYear(APIView):
 
 class ActivitiesPerYear(APIView):
     def get(self, request):
-        return Response({
-            "activities": [
-                {"name": "01) Stampanti - Contratti", "2022": 3438, "2023": 5868, "2024": 6012, "2025": 3132},
-                {"name": "02) Stampanti - Cartellini", "2022": 136, "2023": 290, "2024": 201, "2025": 97},
-                {"name": "03) Stampanti - Dichiarazioni", "2022": 135, "2023": 194, "2024": 191, "2025": 97},
-                {"name": "05) Obblighi da CCNL", "2022": 137, "2023": 302, "2024": 302, "2025": 96},
-                {"name": "06) Informativa sul Trattamento", "2022": 183, "2023": 1430, "2024": 1020, "2025": 0}
-                # ... add more as needed
-            ]
-        })
+        data_path = Path(__file__).resolve().parent.parent / 'data' / 'mock' / 'data3.json'
+        with open(data_path, encoding='utf-8') as f:
+            data = json.load(f)
+        return Response(data)
