@@ -1,0 +1,160 @@
+{
+  "activities": [
+    {
+      "activity": "Tempo Determinato (CCNL Commercio) Dirigenti",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Determinato (CCNL Credito Complementare) AP e Quadri",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Determinato (CCNL Credito) AP e Quadri",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Determinato (CCNL Credito) Dirigenti",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Indeterminato (CCNL Commercio)",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Indeterminato (CCNL Commercio) Dirigenti",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Indeterminato (CCNL Credito Complementare) AP e Quadri",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Indeterminato (CCNL Credito) AP e Quadri",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Tempo Indeterminato (CCNL Credito) Dirigenti",
+      "automation_rate": 83,
+      "avg_number_of_events": 1,
+      "avg_tat": "11"
+    },
+    {
+      "activity": "This is the Modifica log to register the previous and the current value of the Popup Configuration text in Back Office -> Funzioni Batch module of Provvidenze Figli",
+      "automation_rate": 0,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "This is the Visualizzazione Audit log to register the details of the popup configuration text that is retrieved at the time the popup is opened in Provvidenze Figli Creation page",
+      "automation_rate": 33,
+      "avg_number_of_events": 2,
+      "avg_tat": "8"
+    },
+    {
+      "activity": "To Do: Add Dependent",
+      "automation_rate": 100,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "To Do: Check Access Codes",
+      "automation_rate": 18,
+      "avg_number_of_events": 1,
+      "avg_tat": "14"
+    },
+    {
+      "activity": "To Do: Experience Letter from the Current Organization",
+      "automation_rate": 8,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "To Do: IBAN",
+      "automation_rate": 5,
+      "avg_number_of_events": 1,
+      "avg_tat": "2"
+    },
+    {
+      "activity": "To Do: Other Documents to Attach",
+      "automation_rate": 17,
+      "avg_number_of_events": 1,
+      "avg_tat": "5"
+    },
+    {
+      "activity": "Trainee Appointment Letter",
+      "automation_rate": 1,
+      "avg_number_of_events": 1,
+      "avg_tat": "18"
+    },
+    {
+      "activity": "Update Contact Information",
+      "automation_rate": 8,
+      "avg_number_of_events": 1,
+      "avg_tat": "5"
+    },
+    {
+      "activity": "Update Personal Information",
+      "automation_rate": 3,
+      "avg_number_of_events": 1,
+      "avg_tat": "1"
+    },
+    {
+      "activity": "Update polizza",
+      "automation_rate": 56,
+      "avg_number_of_events": 2,
+      "avg_tat": "3"
+    },
+    {
+      "activity": "Update polizza tcm employee detail",
+      "automation_rate": 68,
+      "avg_number_of_events": 1,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "User completed filling and submit the PPR forms",
+      "automation_rate": 16,
+      "avg_number_of_events": 5,
+      "avg_tat": "18"
+    },
+    {
+      "activity": "User filled the different financial instruments he owns across the group companies",
+      "automation_rate": 0,
+      "avg_number_of_events": 3,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "User updated the Instrument details from Piu rilevante",
+      "automation_rate": 60,
+      "avg_number_of_events": 5,
+      "avg_tat": "0"
+    },
+    {
+      "activity": "Verifica possibilità di accesso a fondo pensione per Scelta Welfare",
+      "automation_rate": 27,
+      "avg_number_of_events": 14,
+      "avg_tat": "4"
+    },
+    {
+      "activity": "non censita",
+      "automation_rate": 12,
+      "avg_number_of_events": 4,
+      "avg_tat": "8"
+    }
+  ]
+}

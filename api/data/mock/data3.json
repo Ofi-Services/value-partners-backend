@@ -1,0 +1,186 @@
+{
+  "activities": [
+    {
+      "name": "Tempo Determinato (CCNL Commercio) Dirigenti",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Determinato (CCNL Credito Complementare) AP e Quadri",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Determinato (CCNL Credito) AP e Quadri",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Determinato (CCNL Credito) Dirigenti",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Indeterminato (CCNL Commercio)",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Indeterminato (CCNL Commercio) Dirigenti",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Indeterminato (CCNL Credito Complementare) AP e Quadri",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Indeterminato (CCNL Credito) AP e Quadri",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "Tempo Indeterminato (CCNL Credito) Dirigenti",
+      "2022": 192,
+      "2023": 345,
+      "2024": 319,
+      "2025": 174
+    },
+    {
+      "name": "This is the Modifica log to register the previous and the current value of the Popup Configuration text in Back Office -> Funzioni Batch module of Provvidenze Figli",
+      "2022": 1,
+      "2023": 0,
+      "2024": 0,
+      "2025": 0
+    },
+    {
+      "name": "This is the Visualizzazione Audit log to register the details of the popup configuration text that is retrieved at the time the popup is opened in Provvidenze Figli Creation page",
+      "2022": 54,
+      "2023": 0,
+      "2024": 0,
+      "2025": 0
+    },
+    {
+      "name": "To Do: Add Dependent",
+      "2022": 23,
+      "2023": 288,
+      "2024": 319,
+      "2025": 182
+    },
+    {
+      "name": "To Do: Check Access Codes",
+      "2022": 132,
+      "2023": 194,
+      "2024": 5,
+      "2025": 0
+    },
+    {
+      "name": "To Do: Experience Letter from the Current Organization",
+      "2022": 23,
+      "2023": 288,
+      "2024": 319,
+      "2025": 182
+    },
+    {
+      "name": "To Do: IBAN",
+      "2022": 98,
+      "2023": 320,
+      "2024": 205,
+      "2025": 0
+    },
+    {
+      "name": "To Do: Other Documents to Attach",
+      "2022": 129,
+      "2023": 189,
+      "2024": 8,
+      "2025": 5
+    },
+    {
+      "name": "Trainee Appointment Letter",
+      "2022": 19,
+      "2023": 344,
+      "2024": 318,
+      "2025": 174
+    },
+    {
+      "name": "Update Contact Information",
+      "2022": 137,
+      "2023": 193,
+      "2024": 1,
+      "2025": 0
+    },
+    {
+      "name": "Update Personal Information",
+      "2022": 136,
+      "2023": 191,
+      "2024": 3,
+      "2025": 1
+    },
+    {
+      "name": "Update polizza",
+      "2022": 185,
+      "2023": 471,
+      "2024": 234,
+      "2025": 0
+    },
+    {
+      "name": "Update polizza tcm employee detail",
+      "2022": 12,
+      "2023": 13,
+      "2024": 0,
+      "2025": 0
+    },
+    {
+      "name": "User completed filling and submit the PPR forms",
+      "2022": 50,
+      "2023": 0,
+      "2024": 0,
+      "2025": 0
+    },
+    {
+      "name": "User filled the different financial instruments he owns across the group companies",
+      "2022": 5,
+      "2023": 0,
+      "2024": 0,
+      "2025": 0
+    },
+    {
+      "name": "User updated the Instrument details from Piu rilevante",
+      "2022": 5,
+      "2023": 0,
+      "2024": 0,
+      "2025": 0
+    },
+    {
+      "name": "Verifica possibilità di accesso a fondo pensione per Scelta Welfare",
+      "2022": 1301,
+      "2023": 7212,
+      "2024": 5894,
+      "2025": 0
+    },
+    {
+      "name": "non censita",
+      "2022": 1090,
+      "2023": 1,
+      "2024": 0,
+      "2025": 0
+    }
+  ]
+}

@@ -86,7 +86,7 @@ urlpatterns = [
    path('system-overview/activities-per-year', ActivitiesPerYear.as_view(), name='activities-per-year'),
 
    # Automation Endpoints
-   path('system-overview/avg-automation-rate', AvgAutomationRate.as_view(), name='avg-automation-rate'),
+   path('automation/avg-automation-rate', AvgAutomationRate.as_view(), name='avg-automation-rate'),
 
    path('automation/activity-metrics', ActivityAutomationMetrics.as_view(), name='activity-automation-metrics'),
 
