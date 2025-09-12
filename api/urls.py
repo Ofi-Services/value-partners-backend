@@ -11,6 +11,19 @@ from .views.views import (
    ORMQueryExecutor,
    CaseExplorer,
    CaseActivityTimeline,
+   SystemOverviewKPIs,
+   ActivitySystemDistribution,
+   ActivityCountSystem,
+   ActivityTrend,
+   ActivitiesPerformedOverYear,
+   ActivitiesPerYear,
+   AvgAutomationRate,
+   ActivityAutomationMetrics,
+   UserTATMetrics,
+   SystemTriggeredVsManual,
+   SystemViewDistribution,
+   AutomationRatePerYear,
+   BottlenecksTAT,
 )
 
 """
@@ -58,5 +71,34 @@ urlpatterns = [
    path('case-explorer/', CaseExplorer.as_view(), name='case-explorer'),
 
    path('case/', CaseActivityTimeline.as_view(), name='case-list'),
+
+   # System Overview Endpoints
+   path('system-overview/kpis', SystemOverviewKPIs.as_view(), name='system-overview-kpis'),
+
+   path('system-overview/activity-system-distribution', ActivitySystemDistribution.as_view(), name='activity-system-distribution'),
+
+   path('system-overview/activity-count-system', ActivityCountSystem.as_view(), name='activity-count-system'),
+
+   path('system-overview/activity-trend', ActivityTrend.as_view(), name='activity-trend'),
+
+   path('system-overview/activities-performed-over-year', ActivitiesPerformedOverYear.as_view(), name='activities-performed-over-year'),
+
+   path('system-overview/activities-per-year', ActivitiesPerYear.as_view(), name='activities-per-year'),
+
+   # Automation Endpoints
+   path('system-overview/avg-automation-rate', AvgAutomationRate.as_view(), name='avg-automation-rate'),
+
+   path('automation/activity-metrics', ActivityAutomationMetrics.as_view(), name='activity-automation-metrics'),
+
+   path('automation/user-tat', UserTATMetrics.as_view(), name='user-tat-metrics'),
+
+   # Workload and Bottleneck Endpoints
+   path('workload/system-triggered-vs-manual', SystemTriggeredVsManual.as_view(), name='system-triggered-vs-manual'),
+
+   path('workload/system-view-distribution', SystemViewDistribution.as_view(), name='system-view-distribution'),
+
+   path('workload/rate-per-year', AutomationRatePerYear.as_view(), name='automation-rate-per-year'),
+
+   path('workload/bottlenecks-tat', BottlenecksTAT.as_view(), name='bottlenecks-tat'),
 
 ]
