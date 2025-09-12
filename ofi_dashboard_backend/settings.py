@@ -158,8 +158,6 @@ import os
 
 # Example env variable: DJANGO_USE_HTTPS=1
 USE_HTTPS = os.getenv('DJANGO_USE_HTTPS') == '1'
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
 
 if USE_HTTPS:
     SECURE_SSL_REDIRECT = True

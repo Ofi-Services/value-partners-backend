@@ -1,7 +1,4 @@
-from rest_framework import generics
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
+
 from ..models import Activity, Variant
 from ..serializers import (
     ActivitySerializer,
@@ -10,6 +7,10 @@ from ..serializers import (
 from rest_framework.pagination import PageNumberPagination
 from datetime import datetime
 
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.views import APIView
 
 
 
@@ -341,3 +342,135 @@ class CaseActivityTimeline(APIView):
             })
         return Response(result)
 
+# --- Automation Endpoints ---
+class AvgAutomationRate(APIView):
+    def get(self, request):
+        return Response({"avg_automation_rate": 58})
+
+class ActivityAutomationMetrics(APIView):
+    def get(self, request):
+        return Response({
+            "activities": [
+                {"activity": "01) Stampanti - Contratti", "automation_rate": 100, "avg_number_of_events": 21, "avg_tat": "0 days"},
+                {"activity": "02) Stampanti - Cartellini", "automation_rate": 13, "avg_number_of_events": 1, "avg_tat": "1 day"},
+                {"activity": "03) Stampanti - Dichiarazioni", "automation_rate": 11, "avg_number_of_events": 1, "avg_tat": "8 days"}
+                # ... continue for all rows
+            ]
+        })
+
+class UserTATMetrics(APIView):
+    def get(self, request):
+        return Response({
+            "users": [
+                {"activity": "01) Stampanti - Contratti", "user_id": "GBS01526", "avg_tat_seconds": 46311079},
+                {"activity": "01) Stampanti - Contratti", "user_id": "-", "avg_tat_seconds": 94852386},
+                {"activity": "02) Stampanti - Cartellini", "user_id": "GBS09123", "avg_tat_seconds": 0}
+                # ... continue for all rows
+            ]
+        })
+
+# --- Workload and Bottleneck Endpoints ---
+class SystemTriggeredVsManual(APIView):
+    def get(self, request):
+        return Response({
+            "automation_distribution": [
+                {"type": "Manual", "percentage": 42.05},
+                {"type": "System Triggered", "percentage": 57.95}
+            ]
+        })
+
+class SystemViewDistribution(APIView):
+    def get(self, request):
+        return Response({
+            "distribution": {
+                "manual": {"mysella": 84019, "workday": 24857},
+                "system_triggered": {"mysella": 73450, "workday": 73650}
+            }
+        })
+
+class AutomationRatePerYear(APIView):
+    def get(self, request):
+        return Response({
+            "years": [
+                {"year": 2022, "automation_rate": 75},
+                {"year": 2023, "automation_rate": 58},
+                {"year": 2024, "automation_rate": 56},
+                {"year": 2025, "automation_rate": 58}
+            ]
+        })
+
+class BottlenecksTAT(APIView):
+    def get(self, request):
+        return Response({
+            "activities": [
+                {"activity": "Stampanti - Contratti", "tat_days": 501, "cases": 915},
+                {"activity": "Stampanti - Cartellini", "tat_days": 901, "cases": 853},
+                {"activity": " Stampanti - Dichiarazioni", "tat_days": 113, "cases": 762}
+                # ...
+            ]
+        })
+
+# --- System Overview Endpoints ---
+class SystemOverviewKPIs(APIView):
+    def get(self, request):
+        return Response({
+            "total_number_of_employees": 1091,
+            "number_of_activities": 259007,
+            "average_number_of_activities": 237,
+            "tat_days": 1124
+        })
+
+class ActivitySystemDistribution(APIView):
+    def get(self, request):
+        return Response({
+            "distribution": [
+                {"system": "MySella", "percentage": 60.42},
+                {"system": "Workday", "percentage": 39.58}
+            ]
+        })
+
+class ActivityCountSystem(APIView):
+    def get(self, request):
+        return Response({
+            "years": [
+                {"year": 2022, "total_activities": 14870, "mysella_activities": 14870, "workday_activities": 0},
+                {"year": 2023, "total_activities": 61313, "mysella_activities": 28519, "workday_activities": 32794},
+                {"year": 2024, "total_activities": 106231, "mysella_activities": 72295, "workday_activities": 33936},
+                {"year": 2025, "total_activities": 76503, "mysella_activities": 56695, "workday_activities": 19818}
+            ]
+        })
+
+class ActivityTrend(APIView):
+    def get(self, request):
+        return Response({
+            "years": [
+                {"year": 2022, "number_of_activities": 14870, "avg_activities_per_case": 73},
+                {"year": 2023, "number_of_activities": 61313, "avg_activities_per_case": 125},
+                {"year": 2024, "number_of_activities": 106231, "avg_activities_per_case": 125},
+                {"year": 2025, "number_of_activities": 76503, "avg_activities_per_case": 128}
+            ]
+        })
+
+class ActivitiesPerformedOverYear(APIView):
+    def get(self, request):
+        return Response({
+            "years": [
+                {"year": 2022, "activity_count": 14870, "count": 73, "avg": 78},
+                {"year": 2023, "activity_count": 61313, "count": 125, "avg": 90},
+                {"year": 2024, "activity_count": 106313, "count": 125, "avg": 100},
+                {"year": 2025, "activity_count": 76503, "count": 128, "avg": 71}
+            ]
+        })
+
+class ActivitiesPerYear(APIView):
+    def get(self, request):
+        return Response({
+            "activities": [
+                {"name": "01) Stampanti - Contratti", "2022": 3438, "2023": 5868, "2024": 6012, "2025": 3132},
+                {"name": "02) Stampanti - Cartellini", "2022": 136, "2023": 290, "2024": 201, "2025": 97},
+                {"name": "03) Stampanti - Dichiarazioni", "2022": 135, "2023": 194, "2024": 191, "2025": 97},
+                {"name": "05) Obblighi da CCNL", "2022": 137, "2023": 302, "2024": 302, "2025": 96},
+                {"name": "06) Informativa sul Trattamento", "2022": 183, "2023": 1430, "2024": 1020, "2025": 0}
+                # ... add more as needed
+            ]
+        })
